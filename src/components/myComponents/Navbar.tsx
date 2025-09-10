@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import * as React from "react";
-
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -12,11 +11,27 @@ import {
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import {
+	Sheet,
+	SheetClose,
+	SheetContent,
+	SheetDescription,
+	SheetFooter,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "@/components/ui/sheet";
 import { Heart, User } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import * as React from "react";
+import { FaUserAlt, FaUserGraduate, FaYoutube } from "react-icons/fa";
+import { FaHeartPulse, FaSquareFacebook } from "react-icons/fa6";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { MdShoppingCart } from "react-icons/md";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { TbTruckDelivery } from "react-icons/tb";
+import { Badge } from "../ui/badge";
+import { AiFillInstagram, AiFillTikTok } from "react-icons/ai";
 
 const components: { title: string; href: string; description: string }[] = [
 	{
@@ -56,7 +71,128 @@ const components: { title: string; href: string; description: string }[] = [
 	},
 ];
 
-export function Navbar() {
+export function MobileView() {
+	return (
+		<Sheet>
+			<SheetTrigger asChild>
+				<Button variant="outline" className="">
+					<HiMenuAlt1 size={24} color="black" />
+				</Button>
+			</SheetTrigger>
+			<SheetContent>
+				<SheetHeader>
+					<SheetTitle>
+						<span className="inline-flex items-center gap-2">
+							<Image
+								alt="profile"
+								className="rounded-full h-10 w-10"
+								width={100}
+								height={100}
+								src={
+									"https://i.pinimg.com/736x/0c/c5/e2/0cc5e2a8fd8d7cd62089a8efa15d9713.jpg"
+								}
+							/>
+							Hey Suraj
+						</span>
+					</SheetTitle>
+					<SheetDescription>
+						Fresh looks, anytime, anywhere.
+					</SheetDescription>
+				</SheetHeader>
+				<div className="flex flex-col gap-4 px-5">
+					<h4 className="scroll-m-20 mb-2 text-sm font-semibold tracking-tight border-b pb-2">
+						SHOP IN
+					</h4>
+					<Link href={"#"}>
+						<span className="inline-flex items-center   gap-4">
+							<FaUserGraduate size={20} />
+							<p className="text-sm font-normal">MEN</p>
+						</span>
+					</Link>
+					<Link href={"#"}>
+						<span className="inline-flex items-center   gap-4">
+							<FaUserGraduate size={20} />
+							<p className="text-sm font-normal">WOMEN</p>
+						</span>
+					</Link>
+					<Link href={"#"}>
+						<span className="inline-flex items-center   gap-4">
+							<FaUserGraduate size={20} />
+							<p className="text-sm font-normal">KIDS</p>
+						</span>
+					</Link>
+				</div>
+				<div className="px-5 flex flex-col gap-4 mt-5">
+					<h4 className="uppercase  scroll-m-20 mb-2 text-sm font-semibold tracking-tight border-b pb-2">
+						profile
+					</h4>
+					<section className="flex justify-between ">
+						<Link
+							href={"#"}
+							className="flex flex-col gap-2  items-center "
+						>
+							<div className="inline-flex border-gray-300 border p-2 bg-gray-50 shadow-xs rounded-xl">
+								<FaUserAlt size={30} color="black" />
+							</div>
+							<p className="text-xs font-semibold">My Account</p>
+						</Link>
+						<Link
+							href={"#"}
+							className="flex flex-col gap-2  items-center "
+						>
+							<div className="inline-flex border-gray-300 border p-2 bg-gray-50 shadow-xs rounded-xl">
+								<FaHeartPulse size={30} color="red" />
+							</div>
+							<p className="text-xs font-semibold">My Wishlist</p>
+						</Link>
+						<Link
+							href={"#"}
+							className="flex flex-col gap-2  items-center "
+						>
+							<div className="inline-flex border-gray-300 border p-2 bg-gray-50 shadow-xs rounded-xl">
+								<TbTruckDelivery size={30} color="green" />
+							</div>
+							<p className="text-xs font-semibold">My Order</p>
+						</Link>
+					</section>
+				</div>
+				<div className="px-5 flex flex-col gap-4 mt-5">
+					<h4 className="uppercase  scroll-m-20 mb-2 text-sm font-semibold tracking-tight border-b pb-2">
+						CONTACT US
+					</h4>
+					<Link className="text-sm" href={"#"}>
+						Help & Support
+					</Link>
+					<Link className="text-sm" href={"#"}>
+						Feedback & Suggestions
+					</Link>
+					<div className="flex justify-around">
+						<Badge variant="outline" className="p-2 rounded-full">
+							<FaSquareFacebook size={25} color="blue" />
+						</Badge>
+						<Badge variant="outline" className="p-2 rounded-full">
+							<AiFillInstagram size={25} color="blue" />
+						</Badge>
+						<Badge variant="outline" className="p-2 rounded-full">
+							<AiFillTikTok size={25} color="#FE2C55" />
+						</Badge>
+						<Badge variant="outline" className="p-2 rounded-full">
+							<FaYoutube size={25} color="#FF0000" />
+						</Badge>
+					</div>
+				</div>
+
+				<SheetFooter>
+					<SheetClose asChild>
+						<Button variant="outline">Close</Button>
+					</SheetClose>
+				</SheetFooter>
+			</SheetContent>
+		</Sheet>
+	);
+}
+
+export default function Navbar() {
 	return (
 		<header className="sticky top-0 z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur border-b w-full shadow-xs">
 			<nav className=" flex px-4 md:px-6 max-w-screen-xl mx-auto py-2  justify-between items-center">
@@ -64,9 +200,7 @@ export function Navbar() {
 					<NavigationMenuList>
 						<section className="group flex flex-1 list-none items-center justify-center gap-1">
 							<NavigationMenuItem className="lg:hidden">
-								<Button variant={"outline"}>
-									<HiMenuAlt1 color="black" />
-								</Button>
+								<MobileView />
 							</NavigationMenuItem>
 							<NavigationMenuItem>
 								<NavigationMenuLink

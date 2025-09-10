@@ -1,6 +1,6 @@
 "use client";
 import { ModeToggle } from "@/components/ModeToggle";
-import { Navbar } from "@/components/myComponents/Navbar";
+import  Navbar  from "@/components/myComponents/Navbar";
 
 const page = () => {
 	return (
