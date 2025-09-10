@@ -1,11 +1,11 @@
 "use client";
 import { ModeToggle } from "@/components/ModeToggle";
-import Header from "@/components/myComponents/Header";
+import { Navbar } from "@/components/myComponents/Navbar";
 
 const page = () => {
 	return (
 		<>
-			<Header />
+			<Navbar />
 		</>
 	);
 };

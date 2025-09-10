@@ -4,13 +4,13 @@ import Link from "next/link";
 import * as React from "react";
 
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
+	NavigationMenu,
+	NavigationMenuContent,
+	NavigationMenuItem,
+	NavigationMenuLink,
+	NavigationMenuList,
+	NavigationMenuTrigger,
+	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Input } from "../ui/input";
 
@@ -54,133 +54,159 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Navbar() {
 	return (
-		<NavigationMenu viewport={false} className="px-4 md:px-6 max-w-screen-2xl mx-auto py-2 ">
-			<NavigationMenuList>
-				<section className="group flex flex-1 list-none items-center justify-center gap-1">
-					<NavigationMenuItem>
-						<NavigationMenuLink
-							asChild
-							className={navigationMenuTriggerStyle()}
-						>
-							<Link href="/">LOGO</Link>
-						</NavigationMenuLink>
-					</NavigationMenuItem>
-					<NavigationMenuItem>
-						<NavigationMenuTrigger>MEN</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-								<li className="row-span-3">
-									<NavigationMenuLink asChild>
-										<a
-											className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-											href="/"
+		<header className="sticky top-0 z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur border-b w-full shadow-xs">
+			<nav className="px-4 md:px-6 max-w-screen-xl mx-auto py-2 flex justify-between items-center">
+				<NavigationMenu viewport={false} className=" ">
+					<NavigationMenuList>
+						<section className="group flex flex-1 list-none items-center justify-center gap-1">
+							<NavigationMenuItem>
+								<NavigationMenuLink
+									asChild
+									className={navigationMenuTriggerStyle()}
+								>
+									<Link href="/">LOGO</Link>
+								</NavigationMenuLink>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuTrigger>
+									MEN
+								</NavigationMenuTrigger>
+								<NavigationMenuContent>
+									<ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+										<li className="row-span-3">
+											<NavigationMenuLink asChild>
+												<a
+													className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
+													href="/"
+												>
+													<div className="mt-4 mb-2 text-lg font-medium">
+														shadcn/ui
+													</div>
+													<p className="text-muted-foreground text-sm leading-tight">
+														Beautifully designed
+														components built with
+														Tailwind CSS.
+													</p>
+												</a>
+											</NavigationMenuLink>
+										</li>
+										<ListItem
+											href="/docs"
+											title="Introduction"
 										>
-											<div className="mt-4 mb-2 text-lg font-medium">
-												shadcn/ui
-											</div>
-											<p className="text-muted-foreground text-sm leading-tight">
-												Beautifully designed components
-												built with Tailwind CSS.
-											</p>
-										</a>
-									</NavigationMenuLink>
-								</li>
-								<ListItem href="/docs" title="Introduction">
-									Re-usable components built using Radix UI
-									and Tailwind CSS.
-								</ListItem>
-								<ListItem
-									href="/docs/installation"
-									title="Installation"
-								>
-									How to install dependencies and structure
-									your app.
-								</ListItem>
-								<ListItem
-									href="/docs/primitives/typography"
-									title="Typography"
-								>
-									Styles for headings, paragraphs, lists...etc
-								</ListItem>
-							</ul>
-						</NavigationMenuContent>
-					</NavigationMenuItem>
-					<NavigationMenuItem>
-						<NavigationMenuTrigger>WOMEN</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-								{components.map((component) => (
-									<ListItem
-										key={component.title}
-										title={component.title}
-										href={component.href}
-									>
-										{component.description}
-									</ListItem>
-								))}
-							</ul>
-						</NavigationMenuContent>
-					</NavigationMenuItem>
-					<NavigationMenuItem>
-						<NavigationMenuTrigger>KIDS</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-								{components.map((component) => (
-									<ListItem
-										key={component.title}
-										title={component.title}
-										href={component.href}
-									>
-										{component.description}
-									</ListItem>
-								))}
-							</ul>
-						</NavigationMenuContent>
-					</NavigationMenuItem>
-				</section>
+											Re-usable components built using
+											Radix UI and Tailwind CSS.
+										</ListItem>
+										<ListItem
+											href="/docs/installation"
+											title="Installation"
+										>
+											How to install dependencies and
+											structure your app.
+										</ListItem>
+										<ListItem
+											href="/docs/primitives/typography"
+											title="Typography"
+										>
+											Styles for headings, paragraphs,
+											lists...etc
+										</ListItem>
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuTrigger>
+									WOMEN
+								</NavigationMenuTrigger>
+								<NavigationMenuContent>
+									<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+										{components.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{component.description}
+											</ListItem>
+										))}
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuTrigger>
+									KIDS
+								</NavigationMenuTrigger>
+								<NavigationMenuContent>
+									<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+										{components.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{component.description}
+											</ListItem>
+										))}
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+						</section>
 
-        {/* input field */}
-        <section className="group flex flex-1 list-none items-center justify-center gap-1">
-				<NavigationMenuItem>
-					<Input placeholder="Search" type="search" />
-				</NavigationMenuItem>
-				<NavigationMenuItem>
-					<NavigationMenuTrigger>PROFILE</NavigationMenuTrigger>
-					<NavigationMenuContent>
-						<ul className="grid w-[200px] gap-4">
-							<li>
-								<NavigationMenuLink asChild>
-									<Link href="#">Components</Link>
+						
+					</NavigationMenuList>
+				</NavigationMenu>
+				<NavigationMenu
+					viewport={false}
+				>
+					<NavigationMenuList>
+						{/* input field */}
+						<section className="group flex flex-1 list-none items-center justify-center gap-1">
+							<NavigationMenuItem>
+								<Input placeholder="Search" type="search" />
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuTrigger>
+									PROFILE
+								</NavigationMenuTrigger>
+								<NavigationMenuContent>
+									<ul className="grid w-[200px] gap-4">
+										<li>
+											<NavigationMenuLink asChild>
+												<Link href="#">Components</Link>
+											</NavigationMenuLink>
+											<NavigationMenuLink asChild>
+												<Link href="#">
+													Documentation
+												</Link>
+											</NavigationMenuLink>
+											<NavigationMenuLink asChild>
+												<Link href="#">Blocks</Link>
+											</NavigationMenuLink>
+										</li>
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuLink
+									asChild
+									className={navigationMenuTriggerStyle()}
+								>
+									<Link href="/docs">FAVOURITE</Link>
 								</NavigationMenuLink>
-								<NavigationMenuLink asChild>
-									<Link href="#">Documentation</Link>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuLink
+									asChild
+									className={navigationMenuTriggerStyle()}
+								>
+									<Link href="/docs">CART</Link>
 								</NavigationMenuLink>
-								<NavigationMenuLink asChild>
-									<Link href="#">Blocks</Link>
-								</NavigationMenuLink>
-							</li>
-						</ul>
-					</NavigationMenuContent>
-				</NavigationMenuItem>
-				<NavigationMenuItem>
-					<NavigationMenuLink
-						asChild
-						className={navigationMenuTriggerStyle()}
-					>
-						<Link href="/docs">FAVOURITE</Link>
-					</NavigationMenuLink>
-				</NavigationMenuItem>
-				<NavigationMenuItem>
-					<NavigationMenuLink
-						asChild
-						className={navigationMenuTriggerStyle()}
-					>
-						<Link href="/docs">CART</Link>
-					</NavigationMenuLink>
-				</NavigationMenuItem>
-        </section> 
-			</NavigationMenuList>
-		</NavigationMenu>
+							</NavigationMenuItem>
+						</section>
+					</NavigationMenuList>
+				</NavigationMenu>
+			</nav>
+		</header>
 	);
 }
 
