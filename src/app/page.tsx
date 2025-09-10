@@ -1,11 +1,11 @@
 "use client";
-import { ModeToggle } from "@/components/ModeToggle";
-import  Navbar  from "@/components/myComponents/Navbar";
+import Footer from "@/components/myComponents/Footer";
+import Navbar from "@/components/myComponents/Navbar";
 
 const page = () => {
 	return (
 		<>
-			<Navbar />
+		<div className="h-screen"></div>
 		</>
 	);
 };
