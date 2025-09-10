@@ -12,6 +12,10 @@ import {
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { Heart, User } from "lucide-react";
+import { HiMenuAlt1 } from "react-icons/hi";
+import { MdShoppingCart } from "react-icons/md";
+import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
 const components: { title: string; href: string; description: string }[] = [
@@ -55,10 +59,15 @@ const components: { title: string; href: string; description: string }[] = [
 export function Navbar() {
 	return (
 		<header className="sticky top-0 z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur border-b w-full shadow-xs">
-			<nav className="px-4 md:px-6 max-w-screen-xl mx-auto py-2 flex justify-between items-center">
+			<nav className=" flex px-4 md:px-6 max-w-screen-xl mx-auto py-2  justify-between items-center">
 				<NavigationMenu viewport={false} className=" ">
 					<NavigationMenuList>
 						<section className="group flex flex-1 list-none items-center justify-center gap-1">
+							<NavigationMenuItem className="lg:hidden">
+								<Button variant={"outline"}>
+									<HiMenuAlt1 color="black" />
+								</Button>
+							</NavigationMenuItem>
 							<NavigationMenuItem>
 								<NavigationMenuLink
 									asChild
@@ -67,106 +76,111 @@ export function Navbar() {
 									<Link href="/">LOGO</Link>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
-							<NavigationMenuItem>
-								<NavigationMenuTrigger>
-									MEN
-								</NavigationMenuTrigger>
-								<NavigationMenuContent>
-									<ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-										<li className="row-span-3">
-											<NavigationMenuLink asChild>
-												<a
-													className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-													href="/"
+							<section className="hidden lg:flex group flex-1 list-none items-center justify-center gap-1">
+								<NavigationMenuItem>
+									<NavigationMenuTrigger>
+										MEN
+									</NavigationMenuTrigger>
+									<NavigationMenuContent>
+										<ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+											<li className="row-span-3">
+												<NavigationMenuLink asChild>
+													<a
+														className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
+														href="/"
+													>
+														<div className="mt-4 mb-2 text-lg font-medium">
+															shadcn/ui
+														</div>
+														<p className="text-muted-foreground text-sm leading-tight">
+															Beautifully designed
+															components built
+															with Tailwind CSS.
+														</p>
+													</a>
+												</NavigationMenuLink>
+											</li>
+											<ListItem
+												href="/docs"
+												title="Introduction"
+											>
+												Re-usable components built using
+												Radix UI and Tailwind CSS.
+											</ListItem>
+											<ListItem
+												href="/docs/installation"
+												title="Installation"
+											>
+												How to install dependencies and
+												structure your app.
+											</ListItem>
+											<ListItem
+												href="/docs/primitives/typography"
+												title="Typography"
+											>
+												Styles for headings, paragraphs,
+												lists...etc
+											</ListItem>
+										</ul>
+									</NavigationMenuContent>
+								</NavigationMenuItem>
+								<NavigationMenuItem>
+									<NavigationMenuTrigger>
+										WOMEN
+									</NavigationMenuTrigger>
+									<NavigationMenuContent>
+										<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+											{components.map((component) => (
+												<ListItem
+													key={component.title}
+													title={component.title}
+													href={component.href}
 												>
-													<div className="mt-4 mb-2 text-lg font-medium">
-														shadcn/ui
-													</div>
-													<p className="text-muted-foreground text-sm leading-tight">
-														Beautifully designed
-														components built with
-														Tailwind CSS.
-													</p>
-												</a>
-											</NavigationMenuLink>
-										</li>
-										<ListItem
-											href="/docs"
-											title="Introduction"
-										>
-											Re-usable components built using
-											Radix UI and Tailwind CSS.
-										</ListItem>
-										<ListItem
-											href="/docs/installation"
-											title="Installation"
-										>
-											How to install dependencies and
-											structure your app.
-										</ListItem>
-										<ListItem
-											href="/docs/primitives/typography"
-											title="Typography"
-										>
-											Styles for headings, paragraphs,
-											lists...etc
-										</ListItem>
-									</ul>
-								</NavigationMenuContent>
-							</NavigationMenuItem>
-							<NavigationMenuItem>
-								<NavigationMenuTrigger>
-									WOMEN
-								</NavigationMenuTrigger>
-								<NavigationMenuContent>
-									<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-										{components.map((component) => (
-											<ListItem
-												key={component.title}
-												title={component.title}
-												href={component.href}
-											>
-												{component.description}
-											</ListItem>
-										))}
-									</ul>
-								</NavigationMenuContent>
-							</NavigationMenuItem>
-							<NavigationMenuItem>
-								<NavigationMenuTrigger>
-									KIDS
-								</NavigationMenuTrigger>
-								<NavigationMenuContent>
-									<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-										{components.map((component) => (
-											<ListItem
-												key={component.title}
-												title={component.title}
-												href={component.href}
-											>
-												{component.description}
-											</ListItem>
-										))}
-									</ul>
-								</NavigationMenuContent>
-							</NavigationMenuItem>
+													{component.description}
+												</ListItem>
+											))}
+										</ul>
+									</NavigationMenuContent>
+								</NavigationMenuItem>
+								<NavigationMenuItem>
+									<NavigationMenuTrigger>
+										KIDS
+									</NavigationMenuTrigger>
+									<NavigationMenuContent>
+										<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+											{components.map((component) => (
+												<ListItem
+													key={component.title}
+													title={component.title}
+													href={component.href}
+												>
+													{component.description}
+												</ListItem>
+											))}
+										</ul>
+									</NavigationMenuContent>
+								</NavigationMenuItem>
+							</section>
 						</section>
-
-						
 					</NavigationMenuList>
 				</NavigationMenu>
-				<NavigationMenu
-					viewport={false}
-				>
+				<NavigationMenu viewport={false}>
 					<NavigationMenuList>
-						{/* input field */}
 						<section className="group flex flex-1 list-none items-center justify-center gap-1">
 							<NavigationMenuItem>
-								<Input placeholder="Search" type="search" />
+								<Input
+									placeholder="Search"
+									type="search"
+									className="hidden lg:flex"
+								/>
 							</NavigationMenuItem>
-							<NavigationMenuItem>
+							<NavigationMenuItem className="hidden md:flex">
 								<NavigationMenuTrigger>
-									PROFILE
+									<User
+										color="black"
+										size={16}
+										strokeWidth={2.25}
+									/>
 								</NavigationMenuTrigger>
 								<NavigationMenuContent>
 									<ul className="grid w-[200px] gap-4">
@@ -191,7 +205,9 @@ export function Navbar() {
 									asChild
 									className={navigationMenuTriggerStyle()}
 								>
-									<Link href="/docs">FAVOURITE</Link>
+									<Link href="/docs">
+										<Heart color="black" />
+									</Link>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
@@ -199,7 +215,9 @@ export function Navbar() {
 									asChild
 									className={navigationMenuTriggerStyle()}
 								>
-									<Link href="/docs">CART</Link>
+									<Link href="/docs">
+										<MdShoppingCart color="black" />
+									</Link>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 						</section>
